@@ -1,98 +1,101 @@
-totals=[zeros(14,1);10000
-9997
-9993
-9988
-9982
-9974
-9963
-9949
-9931
-9908
-9879
-9843
-9799
-9745
-9679
-9600
-9506
-9395
-9265
-9115
-8943
-8749
-8531
-8289
-8023
-7733
-7421
-7088
-6736
-6368
-5987
-5596
-5199
-4801
-4404
-4013
-3632
-3264
-2912
-2579
-2267
-1977
-1711
-1469
-1251
-1057
-885
-735
-605
-494
-400
-321
-255
-201
-157
-121
-92
-69
-51
-37
-26
+totals=[zeros(14,1);3
+4
+5
+6
+8
+11
+14
 18
-12
-7
+23
+29
+36
+44
+54
+66
+79
+94
+111
+130
+150
+172
+194
+218
+242
+266
+290
+312
+333
+352
+368
+381
+391
+397
+398
+397
+391
+381
+368
+352
+333
+312
+290
+266
+242
+218
+194
+172
+150
+130
+111
+94
+79
+66
+54
+44
+36
+29
+23
+18
+14
+11
+8
+6
+5
+4
 3
 ];
-totals1=totals
 maxcap=40*6;
 n=size(totals,1);
-//tot_ass=0;
-//for i=n:-1:15
-  //  assem(i-14)=min(maxcap,totals(i));
-    //tot_ass = tot_ass+assem(i-14);
-    //totals(i-1)= totals(i-1)-tot_ass;
-//end
-disp(n);
 tot_ass=0;
-ass_pattern=30:30:240;
-for i=n:-1:15
-	if (totals1(i)>=ass_pattern(1)) then
-		for j = 2:8 
-			if (totals1(i)<ass_pattern(j)) then
-				assem1(i-14)=ass_pattern(j-1);
-				break;
-			elseif (totals1(i)>=ass_pattern(8)) then
-				assem1(i-14)=ass_pattern(8);
-				break;
-			end
-		end
-		tot_ass = tot_ass+assem1(i-14);
-		totals1(i-1)= totals1(i-1)-tot_ass;
-	else
-		assem1(i-14)=0;
+ass_pattern = 3:3:240;
+disp(ass_pattern(80));
+for i = 15:n-1
+	for j = 1:80
+		if (totals(i) >= ass_pattern(80)) then
+			assem(i-14) = ass_pattern(80);
+			totals(i+1) = totals(i+1) + totals(i) - assem(i-14);
+			break;
+		elseif (totals(i) <= ass_pattern(j)) then
+			assem(i-14) = ass_pattern(j);
+			totals(i+1) = totals(i+1) + totals(i) - assem(i-14);
+			break;
+		end		
 	end
 end
-disp(assem1);
-disp(totals1);
-disp(sum(assem1));
+
+for j = 1:80
+		if (totals(n) >= ass_pattern(80)) then
+			assem(n-14) = ass_pattern(80);
+			break;
+		elseif (totals(n) <= ass_pattern(j)) then
+			assem(n-14) = ass_pattern(j);
+			break;
+		end		
+end
+disp(totals);
+
+
+disp(n);
+
+disp(assem);
+disp(sum(assem));
