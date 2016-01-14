@@ -1,4 +1,4 @@
-totals=[zeros(14,1);10000
+totals=[zeros(7,1);10000
 9997
 9993
 9988
@@ -65,12 +65,12 @@ totals=[zeros(14,1);10000
 3
 ];
 totals1=totals
-maxcap=40*6;
+maxcap=40*5;
 n=size(totals,1);
 tot_ass=0;
-for i=n:-1:15
-    assem(i-14)=min(maxcap,totals(i));
-    tot_ass = tot_ass+assem(i-14);
+for i=n:-1:8
+    assem(i-7)=min(maxcap,totals(i));
+    tot_ass = tot_ass+assem(i-7);
     totals(i-1)= totals(i-1)-tot_ass;
 end
 disp(n);
