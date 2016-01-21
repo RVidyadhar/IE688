@@ -54,6 +54,7 @@ totals=[zeros(7,1);3
 9972
 9995
 10000
+
 ];
 totals1=totals
 maxcap=40*6;

@@ -65,7 +65,7 @@ totals=[zeros(7,1);10000
 3
 ];
 totals1=totals
-maxcap=40*5;
+maxcap=40*4;
 n=size(totals,1);
 tot_ass=0;
 for i=n:-1:8
